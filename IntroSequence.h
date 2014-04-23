@@ -6,6 +6,5 @@
 //  Copyright (c) 2014 Tyler Law. All rights reserved.
 //
 
-
 //Code for the intro
-void Intro();
+void Intro(int myNum);
