@@ -95,7 +95,8 @@ int main(int argc, const char * argv[])
         printf("\n[Press enter to restart]");
         fgets(space, 2, stdin);
         
-        Intro();
+        Intro(1);
+        
             
     }
         
@@ -109,7 +110,7 @@ int main(int argc, const char * argv[])
         fgets(space, 2, stdin);
         printf("\n[Press enter to restart]");
         fgets(space, 2, stdin);
-        Intro();
+        Intro(1);
             
             
            
@@ -132,7 +133,8 @@ void ReplaceReturn(char *mystring) {
     mystring[length - 1] = 0;
 }
 
-void Intro() {
+void Intro(int myNum) {
+    int num = (int) myNum;
     int k = 0;
     while (k < 1) {
         printf("\nDETH\nDETH TO ALL\n\n[Logo (alt: Murk)]\n\n");
@@ -201,9 +203,8 @@ void Intro() {
             fgets(space, 2, stdin);
             printf("\n[Press enter to restart]");
             fgets(space, 2, stdin);
-            while (j < 1) {
-                Intro();
-            }
+
+            
         } else if (strcmp(dir2, "right") == 0) {
             fgets(space, 2, stdin);
             printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
@@ -214,19 +215,16 @@ void Intro() {
             fgets(space, 2, stdin);
             printf("\n[Press enter to restart]");
             fgets(space, 2, stdin);
-            while (j < 1) {
-                Intro();
-            }
             
         } else
             
-        
-            k++;
+            
+            
+            k = myNum;
             printf("%d", k);
     
     
         
-        break;
     }
 
         
