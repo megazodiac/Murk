@@ -6,12 +6,6 @@
 //  Copyright (c) 2014 Tyler Law. All rights reserved.
 //
 
-// NOTES :::::: I WANT TO ELIMINATE THE INFINITE LOOP THAT HAPPENS IF YOU FIRST
-// SELECT RIGHT, THEN RIGHT, THEN LEFT.  LEFT IS SUPPOSED TO BE THE ONLY DOOR
-// YOU ARE ALLOWED TO GO THROUGH INITIALLY, WHICH IS WHY I PLACED THE ENTIRE
-// INTRO CODE INTO ITS OWN FUNCTION.  I THINK IT HAS SOMETHING TO DO WITH
-// RETURNING A VALUE, BUT I HAVEN'T BEEN SUCCESSFUL YET.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -19,18 +13,11 @@
 #include <string.h>
 #include "ReplaceReturn.h"
 #include "IntroSequence.h"
-
-
-//Array is for 'Press enter to continue' effect
-char space[3];
-char playername[30];
-int j = 0;
-
-
+#include "Globals.h"
 
 int main(int argc, const char * argv[])
 {
-    printf("DETH\nDETH TO ALL\n\n[Logo (alt: Murk)]\n\n");
+    printf("DETH\nDETH TO ALL\n\n[Logo (alt: MURK)]\n\n");
     
     //Game begins, get name
     printf("ENTER YOUR STUPID NAME, ASSHOLE: ");
@@ -78,56 +65,42 @@ int main(int argc, const char * argv[])
             printf("\nYOU CHOOSE THE RIGHT DIMENSION.");
             i++;
             break;
+            
         } else 
             printf("Enter a valid command, idiot: ");
             fgets(dir1, 7, stdin);
             ReplaceReturn(dir1);
-    }
+        
+    } if (strcmp(dir1, "Right") == 0) {
+        fgets(space, 2, stdin);
+        printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
+        fgets(space, 2, stdin);
+        printf("\nWHAT A FOOL.");
+        fgets(space, 2, stdin);
+        printf("\nGAME OVER");
+        fgets(space, 2, stdin);
+        printf("\n[Press enter to restart]");
+        fgets(space, 2, stdin);
+        Intro(1);
+        
+    } else if (strcmp(dir1, "right") == 0) {
+        fgets(space, 2, stdin);
+        printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
+        fgets(space, 2, stdin);
+        printf("\nWHAT A FOOL.");
+        fgets(space, 2, stdin);
+        printf("\nGAME OVER");
+        fgets(space, 2, stdin);
+        printf("\n[Press enter to restart]");
+        fgets(space, 2, stdin);
+        Intro(1);
     
-    if (strcmp(dir1, "Right") == 0) {
-        fgets(space, 2, stdin);
-        printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
-        fgets(space, 2, stdin);
-        printf("\nWHAT A FOOL.");
-        fgets(space, 2, stdin);
-        printf("\nGAME OVER");
-        fgets(space, 2, stdin);
-        printf("\n[Press enter to restart]");
-        fgets(space, 2, stdin);
-        
-        Intro(1);
-        
-            
-    }
-        
-    else if (strcmp(dir1, "right") == 0) {
-        fgets(space, 2, stdin);
-        printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
-        fgets(space, 2, stdin);
-        printf("\nWHAT A FOOL.");
-        fgets(space, 2, stdin);
-        printf("\nGAME OVER");
-        fgets(space, 2, stdin);
-        printf("\n[Press enter to restart]");
-        fgets(space, 2, stdin);
-        Intro(1);
-            
-            
-           
-        
-        
     } else
-        printf("Yay");
-    
-    printf("Yay");
-    
-
+        printf("Continue");
     return 0;
 }
 
-
-
-//Function fixes fgets problem
+//This function fixes fgets problem
 void ReplaceReturn(char *mystring) {
     int length = (int) strlen(mystring);
     mystring[length - 1] = 0;
@@ -191,9 +164,8 @@ void Intro(int myNum) {
                 printf("Enter a valid command, idiot: ");
             fgets(dir2, 7, stdin);
             ReplaceReturn(dir2);
-        }
-        
-        if (strcmp(dir2, "Right") == 0) {
+            
+        } if (strcmp(dir2, "Right") == 0) {
             fgets(space, 2, stdin);
             printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
             fgets(space, 2, stdin);
@@ -204,7 +176,6 @@ void Intro(int myNum) {
             printf("\n[Press enter to restart]");
             fgets(space, 2, stdin);
 
-            
         } else if (strcmp(dir2, "right") == 0) {
             fgets(space, 2, stdin);
             printf("\nYOU CHOSE WRONG!\nYOU ARE DEAD BEFORE YOU EVEN EXISTED!");
@@ -217,16 +188,7 @@ void Intro(int myNum) {
             fgets(space, 2, stdin);
             
         } else
-            
-            
-            
-            k = myNum;
-            printf("%d", k);
-    
-    
-        
+            k = num;
     }
-
-        
 }
 
